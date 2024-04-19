@@ -1,7 +1,7 @@
-import { Role } from "../../auth/role.enum";
+import { Role } from '../../auth/role.enum';
 
 export interface UserDTO {
   id: number;
   username: string;
-  roles: Role[]
+  roles: Role[];
 }

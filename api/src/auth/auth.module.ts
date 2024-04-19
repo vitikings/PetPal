@@ -9,7 +9,8 @@ import { RolesGuard } from './guards/roles.guard';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
 export const jwtConstants = {
-  secret: 'DO NOT USE THIS VALUE. INSTEAD, CREATE A COMPLEX SECRET AND KEEP IT SAFE OUTSIDE OF THE SOURCE CODE.',
+  secret:
+    'DO NOT USE THIS VALUE. INSTEAD, CREATE A COMPLEX SECRET AND KEEP IT SAFE OUTSIDE OF THE SOURCE CODE.',
 };
 
 @Module({
@@ -22,10 +23,10 @@ export const jwtConstants = {
         return {
           secret: configService.get<string>('JWT_SECRET'),
           signOptions: { expiresIn: '60s' },
-          global: true
+          global: true,
         };
       },
-    })
+    }),
   ],
   providers: [
     AuthService,
@@ -36,7 +37,7 @@ export const jwtConstants = {
     {
       provide: APP_GUARD,
       useClass: RolesGuard,
-    }
+    },
   ],
   controllers: [AuthController],
   exports: [AuthService],
